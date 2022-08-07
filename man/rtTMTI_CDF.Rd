@@ -8,9 +8,9 @@ not be used.}
 rtTMTI_CDF(x, m, K)
 }
 \arguments{
-\item{x}{Point in which to evaluate the CDF}
+\item{x}{Point in which to evaluate the CDF.}
 
-\item{m}{Number of independent tests to combine}
+\item{m}{Number of independent tests to combine.}
 
 \item{K}{Integer; the truncation point to use.}
 }

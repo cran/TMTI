@@ -8,9 +8,9 @@ not be used.}
 TMTI_CDF(x, m)
 }
 \arguments{
-\item{x}{Point in which to evaluate the CDF}
+\item{x}{Point in which to evaluate the CDF.}
 
-\item{m}{Number of independent tests to combine}
+\item{m}{Number of independent tests to combine.}
 }
 \value{
 The probability that the test statistic is at most x assuming

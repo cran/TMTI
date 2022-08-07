@@ -8,11 +8,11 @@ not be used.}
 tTMTI_CDF(x, m, tau)
 }
 \arguments{
-\item{x}{Point in which to evaluate the CDF}
+\item{x}{Point in which to evaluate the CDF.}
 
-\item{m}{Number of independent tests to combine}
+\item{m}{Number of independent tests to combine.}
 
-\item{tau}{The truncation point of the tTMTI procedure}
+\item{tau}{The truncation point of the tTMTI procedure.}
 }
 \value{
 The probability that the test statistic is at most x assuming
@@ -24,4 +24,5 @@ not be used.
 }
 \examples{
 tTMTI_CDF(0.05, 100, 0.05)
+
 }
