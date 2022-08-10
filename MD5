@@ -1,4 +1,4 @@
-d1319e582011a8e651e3f94414e73304 *DESCRIPTION
+fed99c88ec56e65f6f0fa8f8dba82b1b *DESCRIPTION
 f7fb81ba01d5ee2fc13e149c4bec6ac8 *LICENSE
 61894bd4aebabe072feeb23fe1028bde *NAMESPACE
 957625a82c0910ca2cf9c252e3317e65 *R/CTP_LocalTest.R
@@ -47,4 +47,4 @@ cd9c623c82fcdad89f0116cd974cc66a *man/kFWER_LocalTest.Rd
 1d52d0a2ccff0ca0b61ea576f36ffe6d *man/rtTMTI_CDF.Rd
 6e034723df47bb44985905b543047f00 *man/tTMTI_CDF.Rd
 b9d6ad798aad7c2232b0ad6abf3d2105 *src/RcppExports.cpp
-a6afc3aef524c81c2123444deef38b4b *src/cppfunctions.cpp
+47c0f901d55fd26066016469e13988a6 *src/cppfunctions.cpp

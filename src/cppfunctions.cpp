@@ -74,7 +74,7 @@ double MakeZ_C_nsmall(NumericVector pvals, int n, int m) {
     Y = R::pbeta(pvals[i], i + 1, m - i, true, false);
     LeadingMin = *std::min_element(LeadingY.begin(),
                                    LeadingY.end());
-    if ((Y < LeadingMin) & (Y < PreviousY)) {
+    if ((Y < LeadingMin) && (Y < PreviousY)) {
       Z = Y;
       break;
     }
@@ -123,7 +123,7 @@ double TestSet_C (
   double currentMax = 0;
 
   double p_first = *REAL(LocalTest(pSub));
-  if ((p_first >= alpha) & (EarlyStop)) {
+  if ((p_first >= alpha) && (EarlyStop)) {
     return p_first;
   }
 
@@ -140,7 +140,7 @@ double TestSet_C (
       if (p > currentMax) {
         currentMax = p;
       }
-      if ((p > alpha) & (EarlyStop)) {
+      if ((p > alpha) && (EarlyStop)) {
         break;
       }
     }
@@ -156,7 +156,7 @@ double TestSet_C (
       if (p > currentMax) {
         currentMax = p;
       }
-      if ((p > alpha) & (EarlyStop)) {
+      if ((p > alpha) && (EarlyStop)) {
         break;
       }
     }
@@ -199,7 +199,7 @@ std::vector<double> FullCTP_C (Function LocalTest,
       double p = pvals.front();
       pvals.pop_front();
       BottomTrees.push_back(*REAL(f(p, pvals)));
-      if ((TopTree.back() > alpha) | (BottomTrees.back() > alpha)) {
+      if ((TopTree.back() > alpha) || (BottomTrees.back() > alpha)) {
         break;
       }
     }
@@ -222,6 +222,7 @@ std::vector<double> FullCTP_C (Function LocalTest,
       BottomTrees.push_back(*REAL(f(p, pvals)));
     }
     TopTree.push_back(pvals.front());
+    BottomTrees.push_back(pvals.front());
 
 
     for (int i = 0; i < m; i++) {
@@ -298,9 +299,9 @@ int TopDown_C_binary (Function LocalTest,
     Rcout << "low: " << low << "  mid: " << mid << "  high: " << high << "  p: " << p << std::endl;
   }
 
-  if ((low >= high) & (p < alpha)) {
+  if ((low >= high) && (p < alpha)) {
     return low + 1;
-  } else if ((low >= high) & (p >= alpha)) {
+  } else if ((low >= high) && (p >= alpha)) {
     return low;
   } else if (p < alpha) {
     return TopDown_C_binary(LocalTest, pvals, alpha, mid + 1, high, verbose);
@@ -374,9 +375,9 @@ int TopDown_C_binary_subset (Function LocalTest,
     Rcout << "low: " << low << "  mid: " << mid << "  high: " << high << "  p: " << p << std::endl;
   }
 
-  if ((low >= high) & (p < alpha)) {
+  if ((low >= high) && (p < alpha)) {
     return low + 1;
-  } else if ((low >= high) & (p >= alpha)) {
+  } else if ((low >= high) && (p >= alpha)) {
     return low;
   } else if (p < alpha) {
     return TopDown_C_binary_subset(LocalTest, pSub, pRest, alpha, mid + 1, high, verbose);
@@ -498,9 +499,9 @@ int FWER_set_C (Function LocalTest,
     Rcout << "low: " << low << "  mid: " << mid << "  high: " << high << "  p: " << p << std::endl;
   }
 
-  if ((low >= high) & (p < alpha)) {
+  if ((low >= high) && (p < alpha)) {
     return low + 1;
-  } else if ((low >= high) & (p >= alpha)) {
+  } else if ((low >= high) && (p >= alpha)) {
     return low;
   } else if (p < alpha) {
     return FWER_set_C(LocalTest, pvals, alpha, mid + 1, high, verbose);
