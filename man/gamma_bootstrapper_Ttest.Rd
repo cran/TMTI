@@ -11,7 +11,8 @@ gamma_bootstrapper_Ttest(
   B = 1000,
   mc.cores = 1L,
   tau = NULL,
-  K = NULL
+  K = NULL,
+  verbose = FALSE
 )
 }
 \arguments{
@@ -35,6 +36,8 @@ then either TMTI (default) or rtTMTI is used.}
 
 \item{K}{Integer; Number of smallest p-values to use in rtTMTI. If se to NULL,
 then either TMTI (default) or tTMTI is used.}
+
+\item{verbose}{Logical, indicating whether or not to print progress.}
 }
 \value{
 A list of bootstrapped TMTI CDFs that can be used directly in the

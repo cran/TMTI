@@ -61,7 +61,7 @@ TMTI_CTP = function(pvals, alpha = 0.05, B = 1e3,
                     tau = NULL, K = NULL,
                     is.sorted = FALSE,
                     ...) {
-  .Deprecated(new = "CTP_CTMI")
+  .Deprecated(new = "CTP_TMTI")
 
   CTP_TMTI (
     pvals = pvals,

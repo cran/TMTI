@@ -204,8 +204,10 @@ adjust_LocalTest = function(LocalTest,
         results[[i]] = .f(i)
         if (results[[i]] < alpha) {
           out = i
-          cat(sprintf("There are %i p-values that can be rejected with FWER control.\nAn upper bound for these is %.4f%%",
+          if(verbose) {
+            cat(sprintf("There are %i p-values that can be rejected with FWER control.\nAn upper bound for these is %.4f%%",
                       out, 100*results[[i]] ))
+          }
           return(i)
         }
       }
@@ -239,7 +241,9 @@ adjust_LocalTest = function(LocalTest,
           break
         }
       }
-      cat(sprintf("\rThere are %i hypotheses that can be rejected with FWER control", R - 1))
+      if (verbose) {
+        cat(sprintf("\rThere are %i hypotheses that can be rejected with FWER control", R - 1))
+      }
       return (R - 1)
     }
 
@@ -277,8 +281,10 @@ adjust_LocalTest = function(LocalTest,
       } else {
         if (any(unlist(results) < alpha)) {
           out = m2 + 1 - which(unlist(results) < alpha)[1]
-          cat(sprintf("There are %i p-values that can be rejected with FWER control.\nAn upper bound for these is %.4f%%",
+          if (verbose) {
+            cat(sprintf("There are %i p-values that can be rejected with FWER control.\nAn upper bound for these is %.4f%%",
                       out, 100*unlist(results)[which(unlist(results) < alpha)[1]] ))
+          }
           return (out)
         }
       }

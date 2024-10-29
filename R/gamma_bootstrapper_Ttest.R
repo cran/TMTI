@@ -14,6 +14,7 @@
 #' then either TMTI (default) or rtTMTI is used.
 #' @param K Integer; Number of smallest p-values to use in rtTMTI. If se to NULL,
 #' then either TMTI (default) or tTMTI is used.
+#' @param verbose Logical, indicating whether or not to print progress.
 #'
 #' @return A list of bootstrapped TMTI CDFs that can be used directly in the
 #' CTP_TMTI function.
@@ -36,7 +37,8 @@ gamma_bootstrapper_Ttest = function(Y,
                                      B = 1e3,
                                      mc.cores = 1L,
                                      tau = NULL,
-                                     K = NULL) {
+                                     K = NULL,
+                                     verbose = FALSE) {
   if (!is.null(X)) {
     stopifnot(
       "X contains more than two unique values" = length(unique(X)) <= 2
@@ -110,7 +112,9 @@ gamma_bootstrapper_Ttest = function(Y,
   lapply(
     1:ncol(Y),
     function(i) {
-      cat("\rComputing gamma function for level ", i, " of ", ncol(Y))
+      if (verbose) {
+        cat("\rComputing gamma function for level ", i, " of ", ncol(Y))
+      }
       if (i == 1) {
         function(x) x
       } else {

@@ -77,7 +77,7 @@ TMTI = function(pvals,
 
   if (!is.null(gamma)) {
     return(gamma(Z))
-  } else if (m <= m_max) {
+  } else if ((m <= m_max) & (n >= m)) {
     if (!is.null(K) & !is.null(tau)) {
       stop("Please supply only one of tau and K")
     } else if (!is.null(K)) {
